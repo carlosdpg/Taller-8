@@ -21,7 +21,6 @@
                 <th>Correo electronico</th>
                 <th>Telefono</th>
                 <th>Usuario</th>
-                <th>Password</th>
                 <th>Opciones</th>
             </tr>
         </thead>
@@ -37,7 +36,6 @@
                     <td>{{ persona.email }}</td>
                     <td>{{ persona.telefono }}</td>
                     <td>{{ persona.usuario }}</td>
-                    <td>{{ persona.password }}</td>
                     <td><a href="{% url 'editar_persona' persona.id %}">EDITAR</a> <a href="{% url 'eliminar_persona' persona.id %}">ELIMINAR</a></td>
                 </tr>
             {% endfor %}
