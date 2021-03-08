@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+{% block titulo %}Formulario de tipo de documento{% endblock titulo %}
+{% block cuerpo %}
+
+<form id="FormularioTipoDocumento" method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button type="submit">Crear o Editar</button>
+</form>
+{% endblock cuerpo %}

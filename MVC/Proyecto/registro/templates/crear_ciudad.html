@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+{% block titulo %}Formulario de ciudad{% endblock titulo %}
+{% block cuerpo %}
+
+<form id="FormularioCiudad" method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button type="submit">Crear o Editar</button>
+</form>
+{% endblock cuerpo %}

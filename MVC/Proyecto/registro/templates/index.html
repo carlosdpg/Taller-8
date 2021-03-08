@@ -4,9 +4,86 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablas</title>
+    <title>{% block titulo %}Tablas{% endblock titulo %}</title>
 </head>
 <body>
-    
+    {% block cuerpo %}
+    <h1 id="TituloTablaPersonas">Personas</h1>
+    <table id="TablaPersonas" border="2">
+        <thead>
+            <tr>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Tipo de Documento</th>
+                <th>Documento</th>
+                <th>Lugar de Residencia</th>
+                <th>Fecha de nacimiento</th>
+                <th>Correo electronico</th>
+                <th>Telefono</th>
+                <th>Usuario</th>
+                <th>Password</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for persona in personas %}
+                <tr>
+                    <td>{{ persona.nombres }}</td>
+                    <td>{{ persona.apellidos }}</td>
+                    <td>{{ persona.idtipodocumento }}</td>
+                    <td>{{ persona.documento }}</td>
+                    <td>{{ persona.lugarresidencia }}</td>
+                    <td>{{ persona.fechanacimiento }}</td>
+                    <td>{{ persona.email }}</td>
+                    <td>{{ persona.telefono }}</td>
+                    <td>{{ persona.usuario }}</td>
+                    <td>{{ persona.password }}</td>
+                    <td><a href="{% url 'editar_persona' persona.id %}">EDITAR</a> <a href="{% url 'eliminar_persona' persona.id %}">ELIMINAR</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button class="agregar" onclick="window.location.href = 'crear_persona.html';">Agregar persona</button>
+    <h1 id="TituloTablaCiudades">Ciudades</h1>
+    <table id="TablaCiudades" border="2">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ciudad in ciudades %}
+                <tr>
+                    <td>{{ ciudad.nombre }}</td>
+                    <td>{{ ciudad.descripcion }}</td>
+                    <td><a href="{% url 'editar_ciudad' ciudad.id %}">EDITAR</a> <a href="{% url 'eliminar_ciudad' ciudad.id %}">ELIMINAR</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button class="agregar" onclick="window.location.href = 'crear_ciudad.html';">Agregar ciudad</button>
+    <h1 id="TituloTablaTipoDocumento">Tipos de documento</h1>
+    <table id="TablaTipoDocumento" border="2">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tipodocumento in tiposdocumentos %}
+                <tr>
+                    <td>{{ tipodocumento.nombre }}</td>
+                    <td>{{ tipodocumento.descripcion }}</td>
+                    <td><a href="{% url 'editar_tipodocumento' tipodocumento.id %}">EDITAR</a> <a href="{% url 'eliminar_tipodocumento' tipodocumento.id %}">ELIMINAR</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button class="agregar" onclick="window.location.href = 'crear_tipodocumento.html';">Agregar tipo de documennto</button>
+    {% endblock cuerpo %}
 </body>
 </html>
